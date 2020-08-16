@@ -25,6 +25,7 @@
 """
   Este módulo es una aplicación básica con un menú de opciones para cargar datos, contar elementos, y hacer búsquedas sobre una lista.
 """
+"Hola mundo"
 
 import config as cf
 import sys
@@ -102,10 +103,29 @@ def countElementsFilteredByColumn(criteria, column, lst):
     return counter
 
 def countElementsByCriteria(criteria, column, lst):
+    x = 0
+    y = 0
+    cont = 0
+    ref = ""
+    while x < len(lst)-1:
+        if criteria == lst[0][x]:
+            ref = type(lst[0][x])
+            y = x
+            x = len(lst)-1
+        else:
+            x += 1
+    if y == 0:
+        cont = 0
+    else:
+        for i in lst:
+            if type(i[y]) == ref:
+                cont +=1
+            
+        
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
     """
-    return 0
+    return cont
 
 
 def main():
